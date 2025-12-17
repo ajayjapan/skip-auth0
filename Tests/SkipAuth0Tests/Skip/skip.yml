@@ -1,0 +1,11 @@
+# Configuration file for https://skip.tools project
+build:
+  contents:
+    - block: 'android'
+      contents:
+        - block: 'defaultConfig'
+          contents:
+            # https://github.com/auth0/react-native-auth0/issues/387#issuecomment-3430294507
+            - 'manifestPlaceholders["auth0Domain"] = "test-domain"'
+            - 'manifestPlaceholders["auth0Scheme"] = "test-scheme"'
+
