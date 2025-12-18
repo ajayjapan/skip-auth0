@@ -3,6 +3,7 @@
 #if !SKIP_BRIDGE
 import Foundation
 #if SKIP
+import skip.ui.UIApplication
 import android.app.Activity
 import android.content.Context
 import com.auth0.android.Auth0
@@ -129,15 +130,7 @@ public final class Auth0SDK {
 
     #if SKIP
     func presentingContext(presenting: Any?) -> Context? {
-        if let activity = presenting as? Activity {
-            return activity
-        } else if let presentingContext = presenting as? Context {
-            return presentingContext
-        } else if let processContext = ProcessInfo.processInfo.androidContext {
-            return processContext
-        } else {
-            return nil
-        }
+        return UIApplication.shared.androidActivity
     }
     #endif
 }
